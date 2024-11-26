@@ -32,7 +32,7 @@ export default function Game() {
 
   return (
     <div className="flex flex-col items-center px-4">
-    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">FlapySol Game</h2>
+    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">{"FlapySol <-> $FLAPS"}</h2>
     <div className="w-full max-w-screen-md h-[600px] relative mx-auto md:max-w-screen-xl md:h-auto md:aspect-video">
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-500 rounded-xl">

@@ -11,7 +11,7 @@ export default function Scoreboard() {
       {/* Personal Best Section */}
       <div className="bg-slate-700 shadow-md rounded-xl p-4 md:p-6 max-w-sm mx-auto mb-8">
         <p className="text-lg md:text-2xl mb-2">Your Personal Best</p>
-        <p className="text-2xl md:text-4xl font-bold text-purple-600">{personalBest} coins</p>
+        <p className="text-2xl md:text-4xl font-bold text-purple-600">{personalBest} $FLAPS</p>
       </div>
 
       {/* Leaderboards Section */}
