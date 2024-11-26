@@ -41,6 +41,7 @@ export default function Navbar({
     }
   };
 
+  
   // Animation Variants
   const sidebarVariants = {
     hidden: {
