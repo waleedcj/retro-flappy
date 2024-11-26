@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { FaCopy } from "react-icons/fa";
 import { toast } from "react-toastify";
 import copy from "copy-to-clipboard";
