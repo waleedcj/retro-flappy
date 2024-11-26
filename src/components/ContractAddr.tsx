@@ -6,6 +6,7 @@ import copy from "copy-to-clipboard";
 
 const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS;
 
+
 export default function FloatingContractAddress() {
     const handleCopyContractAddress = () => {
         if (CONTRACT_ADDRESS) {
