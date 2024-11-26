@@ -1,24 +1,27 @@
 import { useRef } from "react";
 import Navbar from "./components/Navbar";
-// import Home from './components/Home';
 import Game from "./components/Game";
-import Scoreboard from "./components/Scoreboard";
 import Roadmap from "./components/Roadmap";
 import About from "./components/About";
 import { PersonalBestProvider } from "./context/Personalbest";
 import { ToastProvider } from "./context/ToastProvider";
 import FloatingContractAddress from "./components/ContractAddr";
-// import "./App.css"
+import Scoreboard from "./components/Scoreboard";
 
 function App() {
-  // const homeRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
   const gameRef = useRef<HTMLDivElement>(null);
-  const scoreboardRef = useRef<HTMLDivElement>(null);
+  // const scoreboardRef = useRef<HTMLDivElement>(null);
   const roadmapRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
+    if (ref.current && navbarRef.current) {
+      const navbarHeight = navbarRef.current.getBoundingClientRect().height;
+      const sectionTop = ref.current.getBoundingClientRect().top + window.scrollY;
+      const scrollPosition = sectionTop - navbarHeight;
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
+    }
   };
 
   return (
@@ -26,9 +29,9 @@ function App() {
       <ToastProvider>
         <div className="flex flex-col min-h-screen bg-slate-900">
           <Navbar
-            // onHomeClick={() => scrollToSection(homeRef)}
+            navbarRef={navbarRef}
             onGameClick={() => scrollToSection(gameRef)}
-            onScoreboardClick={() => scrollToSection(scoreboardRef)}
+            // onScoreboardClick={() => scrollToSection(scoreboardRef)}
             onRoadmapClick={() => scrollToSection(roadmapRef)}
             onAboutClick={() => scrollToSection(aboutRef)}
           />
@@ -37,7 +40,7 @@ function App() {
             <div ref={gameRef}>
               <Game />
             </div>
-            <div ref={scoreboardRef}>
+            <div>
               <Scoreboard />
             </div>
             <div ref={roadmapRef}>

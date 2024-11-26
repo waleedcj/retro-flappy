@@ -6,9 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavbarProps {
   onGameClick: () => void;
-  onScoreboardClick: () => void;
+  onScoreboardClick?: () => void;
   onRoadmapClick: () => void;
   onAboutClick: () => void;
+  navbarRef: React.RefObject<HTMLDivElement>;
 }
 
 const BUY_URL = import.meta.env.VITE_BUY_URL;
@@ -16,9 +17,10 @@ const BUY_URL = import.meta.env.VITE_BUY_URL;
 export default function Navbar({
   //   onHomeClick,
   onGameClick,
-  //   onScoreboardClick,
+//   onScoreboardClick,
   onRoadmapClick,
   onAboutClick,
+  navbarRef
 }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -85,7 +87,7 @@ export default function Navbar({
   };
 
   return (
-    <header className="sticky top-0 z-10">
+    <header ref={navbarRef} className="sticky top-0 z-10">
       {/* Main Navigation Bar */}
       <nav className="bg-gray-900">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto px-4 py-8">
@@ -137,9 +139,9 @@ export default function Navbar({
               {/* <li>
                 <button
                   onClick={onScoreboardClick}
-                  className="py-2 px-3 text-gray-900 hover:text-blue-700 text-white hover:text-[#a855f7]"
+                  className="py-2 px-3 text-white hover:text-[#a855f7]"
                 >
-                  Scoreboard
+                  Score
                 </button>
               </li> */}
               <li>
